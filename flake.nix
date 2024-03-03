@@ -8,7 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+  };
 
   outputs = { self, nixpkgs, ...}@inputs: {
     nixosConfigurations = {
@@ -17,9 +17,9 @@
         modules = [
           ./configuration.nix
           ./coral/configuration.nix
-	        ./coral/hardware-configuration.nix
-	      ];
-	    };
-	  };
-	};
+          ./coral/hardware-configuration.nix
+	];
+      };
+    };
+  };
 }
