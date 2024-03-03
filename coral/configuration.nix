@@ -19,15 +19,28 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_6_7.gasket #google coral
-    frigate
     plex
     plexRaw
     plexamp
+    plex-media-player
   ];
-
-  services.plex = {
+  #services.frigate.enable = true;
+  services.plex = let plexpass = pkgs.plex.override {
+  plexRaw = pkgs.plexRaw.overrideAttrs(old: rec {
+    version = "1.40.1.8120-6dc7f7fd8";
+    src = pkgs.fetchurl {
+      url = "https://downloads.plex.tv/plex-media-server-new/${version}/debian/plexmediaserver_${version}_amd64.deb";
+      sha1 = "a85174fc5169db425f101c4a314d3460c37f9bff";
+    };
+  });
+  }; 
+  in {
     enable = true;
     openFirewall = true;
+    user = "actuary";
+    dataDir = "/var/lib/plex/'TV Shows'";
+    package = plexpass;
   };
+  services.tautulli.enable = true;
 
 }

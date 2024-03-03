@@ -69,6 +69,7 @@
     openssl
     unzip
     pciutils #lspci
+    alacritty
   ];
 
   # List services that you want to enable:
