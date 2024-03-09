@@ -49,7 +49,7 @@
   users.users.actuary = {
     isNormalUser = true;
     description = "username";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
     password = "password";
   };
