@@ -1,6 +1,21 @@
 {
-fileSystems."/home/Unraid/Media" = {
+fileSystems."/mnt/user/Media" = {
   device = "unraid.lan:/mnt/user/Media";
+  fsType = "nfs";
+  neededForBoot = false;
+  #automount.enable = true;
+  options = [
+  "nofail"
+  "sec=sys"
+  "rw"
+  "insecure"
+  "anongid=100"
+  "anonuid=99"
+  "no_root_squash"
+	];
+  };
+fileSystems."/mnt/user/services/authentik" = {
+  device = "unraid.lan:/mnt/user/services/authentik";
   fsType = "nfs";
   neededForBoot = false;
   #automount.enable = true;
@@ -8,8 +23,17 @@ fileSystems."/home/Unraid/Media" = {
   "nofail"
 	"rw"
 	"hard"
-	"intr"
 	];
   };
-
+fileSystems."/mnt/user/services/servarr" = {
+  device = "unraid.lan:/mnt/user/services/servarr";
+  fsType = "nfs";
+  neededForBoot = false;
+  #automount.enable = true;
+  options = [
+  "nofail"
+	"rw"
+	"hard"
+	];
+  };
 }
