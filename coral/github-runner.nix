@@ -7,13 +7,14 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-  services.github-runners = {
+
+    services.github-runners = {
       alex = {
-        url = "https://github.com/AlexanderTroyScott/hackathon-predictive-analytics";
+        url = "https://github.com/AlexanderTroyScott/servarr";
         tokenFile = "/etc/nixos/alex.token";
         replace = true;
         serviceOverrides.ProtectHome = false;
-        extraLabels = ["vpn"];
+        #extraLabels = ["vpn"];
         name = "actuary";
         user = "actuary";
         #workDir = "/tmp";
@@ -21,14 +22,12 @@
           docker
           ];
       }; 
-  };
-    services.github-runners = {
-      alex = {
-        url = "https://github.com/Actuary-LLC/reverse-proxy";
+      actuary = {
+        url = "https://github.com/Actuary-LLC";
         tokenFile = "/etc/nixos/actuary.token";
         replace = true;
         serviceOverrides.ProtectHome = false;
-        #extraLabels = ["vpn"];
+        extraLabels = ["traefik"];
         name = "actuary";
         user = "actuary";
         #workDir = "/tmp";

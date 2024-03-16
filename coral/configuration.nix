@@ -8,6 +8,8 @@
   imports = [
     ./docker.nix
     ./prowlarr.nix
+    ./storage.nix
+    ./github-runner.nix
   ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Bootloader.
@@ -42,9 +44,9 @@
     enable = true;
     openFirewall = true;
     user = "actuary";
-    dataDir = "/var/lib/plex/'TV Shows'";
+    dataDir = "/home/Unraid/Media/";
     package = plexpass;
   };
-  services.tautulli.enable = true;
+  #services.tautulli.enable = true;
 
 }
