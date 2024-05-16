@@ -6,12 +6,10 @@
   device = "unraid.lan:/mnt/user/services/plex";
   fsType = "nfs";
   neededForBoot = false;
-  #automount.enable = true;
   options = [
   "nofail"
 	"rw"
 	"hard"
-  "nfsvers=4"
 	];
   };
 

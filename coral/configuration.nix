@@ -10,7 +10,7 @@
     #./prowlarr.nix
     ./storage.nix
     ./github-runner.nix
-    ./plex.nix
+  #  ./plex.nix
   ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Bootloader.
@@ -25,5 +25,24 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
  
+
+    # Define the 'nobody' group
+#  users.groups.nobody = {
+#    gid = 100;
+#  };
+
+  # Define the 'nobody' user
+#  users.users.nobody = {
+#    isNormalUser = false; # 'nobody' is not a normal user
+#    uid = 99;
+#    group = "nobody";
+#    home = "/"; # typically not used, set to the filesystem root
+#    shell = pkgs.runCommandNoCC "no-login-shell" {} ''
+#      echo "#!${pkgs.stdenv.shell}" > $out
+#      echo "exit 1" >> $out
+#      chmod +x $out
+#    '';
+#    description = "Unprivileged User";
+#  };
 
 }
