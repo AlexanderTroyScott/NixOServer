@@ -70,6 +70,8 @@
     unzip
     pciutils #lspci
     alacritty
+    docker-compose
+    glances
   ];
 
   # List services that you want to enable:

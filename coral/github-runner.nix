@@ -27,12 +27,13 @@
         tokenFile = "/etc/nixos/actuary.token";
         replace = true;
         serviceOverrides.ProtectHome = false;
-        extraLabels = ["traefik"];
+        extraLabels = ["traefik" "coral"];
         name = "actuary";
         user = "actuary";
         #workDir = "/tmp";
         extraPackages = with pkgs; [ 
           docker
+          docker-compose
           ];
       }; 
   };
