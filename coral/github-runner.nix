@@ -22,7 +22,8 @@
           docker
           ];
       }; 
-      actuary = {
+      actuarynew = {
+        enable = true;
         url = "https://github.com/Actuary-LLC";
         tokenFile = "/etc/nixos/actuary.token";
         replace = true;
