@@ -6,12 +6,22 @@ boot.initrd = {
   supportedFilesystems = [ "nfs" ];
   kernelModules = [ "nfs" ];
   };
+
+ #services.nfs.client = {
+ #   enable = true;
+    # You can specify additional NFS client configurations here if needed
+ # };
+    
+
+
 fileSystems."/mnt/user/docker/volumes" = {
   device = "unraid.lan:/mnt/user/docker/volumes/";
   fsType = "nfs4";
   neededForBoot = false;
+
   #automount.enable = true;
   options = [
+  "x-systemd.automount" "noauto"
   "nofail"
 	"rw"
 	"hard"
@@ -25,6 +35,7 @@ fileSystems."/mnt/user/library" = {
   neededForBoot = false;
   #automount.enable = true;
   options = [
+    "x-systemd.automount" "noauto"
  "nofail"
 	"rw"
 	"hard"
@@ -36,7 +47,9 @@ fileSystems."/mnt/user/vault" = {
   device = "unraid.lan:/mnt/user/vault";
   fsType = "nfs4";
   neededForBoot = false;
+  #automount.enable = true;
   options = [
+    "x-systemd.automount" "noauto"
   "nofail"
 	"rw"
 	"hard"
@@ -47,7 +60,9 @@ fileSystems."/mnt/user/scan" = {
   device = "unraid.lan:/mnt/user/scan";
   fsType = "nfs4";
   neededForBoot = false;
+  #automount.enable = true;
   options = [
+   "x-systemd.automount" "noauto"
   "nofail"
 	"rw"
 	"hard"
