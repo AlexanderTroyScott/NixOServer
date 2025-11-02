@@ -53,7 +53,13 @@
     packages = with pkgs; [];
     password = "password";
   };
-
+  #users.users.coder = {
+  #  isNormalUser = true;
+  #  description = "username";
+  #  extraGroups = [ "networkmanager" "wheel"];
+  #  packages = with pkgs; [];
+  #  password = "password";
+  #};
   # Enable automatic login for the user.
   services.getty.autologinUser = "actuary";
 
