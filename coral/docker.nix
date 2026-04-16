@@ -26,7 +26,7 @@
     #userland-proxy = false;
     #experimental = true;
     ipv6 = true;
-    fixed-cidr-v6 = "fd00::/80";
+    #fixed-cidr-v6 = "fd00::/80";
     #metrics-addr = "0.0.0.0:9323";
     #log-driver = "json-file";
     #log-opts.max-size = "10m";

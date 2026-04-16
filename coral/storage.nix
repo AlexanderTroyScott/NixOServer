@@ -15,17 +15,15 @@ boot.initrd = {
 
 
 fileSystems."/mnt/user/docker/volumes" = {
-  device = "unraid.lan:/mnt/user/docker/volumes/";
-  fsType = "nfs4";
-  neededForBoot = false;
-
+	device = "unraid.lan:/mnt/ssd/docker/volumes";
+	fsType = "nfs4";
+	neededForBoot = false;
   #automount.enable = true;
   options = [
-  "x-systemd.automount" "noauto"
   "nofail"
 	"rw"
-	"hard"
-  "sync"
+	"soft"
+  "timeo=14"
 	];
   };
 
@@ -38,13 +36,13 @@ fileSystems."/mnt/user/library" = {
     "x-systemd.automount" "noauto"
  "nofail"
 	"rw"
-	"hard"
+	"soft"
   "sync"
 	];
   };
 
 fileSystems."/mnt/user/vault" = {
-  device = "unraid.lan:/mnt/user/vault";
+  device = "unraid.lan:/mnt/ssd/vault";
   fsType = "nfs4";
   neededForBoot = false;
   #automount.enable = true;
@@ -52,12 +50,12 @@ fileSystems."/mnt/user/vault" = {
     "x-systemd.automount" "noauto"
   "nofail"
 	"rw"
-	"hard"
+	"soft"
   "sync"
 	];
   };
 fileSystems."/mnt/user/scan" = {
-  device = "unraid.lan:/mnt/user/scan";
+  device = "unraid.lan:/mnt/ssd/scan";
   fsType = "nfs4";
   neededForBoot = false;
   #automount.enable = true;
@@ -65,7 +63,7 @@ fileSystems."/mnt/user/scan" = {
    "x-systemd.automount" "noauto"
   "nofail"
 	"rw"
-	"hard"
+	"soft"
   "sync"
 	];
  };

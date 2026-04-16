@@ -30,7 +30,14 @@
 #  users.groups.nobody = {
 #    gid = 100;
 #  };
-
+networking = {
+  # Enable IPv6 globally
+  enableIPv6 = true;
+};
+#networking.interfaces. = {
+#  useDHCP = true;        # or:
+#  useDHCPv6 = true;
+#};
   # Define the 'nobody' user
 #  users.users.nobody = {
 #    isNormalUser = false; # 'nobody' is not a normal user
